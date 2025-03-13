@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.get('/', (req, res) => {
   console.log('get homepage', path.join(__dirname, 'build/index.html'));
 
-  res.sendFile(path.join(__dirname, '../build/index.html'));
+  res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 
 app.use('/api', router);

@@ -6,8 +6,6 @@
 app = 'motormind-test-app'
 primary_region = 'eze'
 
-[build]
-
 [http_service]
   internal_port = 3000
   force_https = true
