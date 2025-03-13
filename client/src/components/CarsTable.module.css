@@ -1,0 +1,9 @@
+.carRowClickable:hover {
+    cursor: pointer;
+}
+
+.carTable {
+    @media (max-width: 520px) {
+        font-size: 0.8rem;
+    }
+}
