@@ -17,7 +17,7 @@ try {
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
-app.get('/cars/:id', (req, res) => {
+app.get('/car/:id', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 app.get('/diagnosis/:id', (req, res) => {
