@@ -9,19 +9,29 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, '../build')));
+try {
+  app.use(express.static(path.join(__dirname, '../build')));
+} catch (error) {
+  
+}
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+app.get('/cars/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+app.get('/diagnosis/:id', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
 app.use('/api', router);
 
-const port = process.env.PORT || 5000;
+const port = Number(process.env.PORT) || 5000;
 
 async function startServer() {
   await connectToMongoDB();
 
-  app.listen(port, () => {
+  app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running on http://localhost:${port}`);
   });
 };

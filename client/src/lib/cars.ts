@@ -71,22 +71,3 @@ export const useGetCar = (carId: string) => {
 
   return { car, isLoading };
 };
-
-export const useCreateCar = (car: Omit<Car, '_id' | 'diagnosis'>) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, setCars] = useLocalStorageState<Car[]>('cars', {
-    defaultValue: []
-  });
-
-  fetch('/api/cars', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ car }),
-  }).then(res => res.json()).then(res => {
-    setCars(c => ([...c, res]));
-  }).catch(error => {
-    console.error(error);
-  });
-};

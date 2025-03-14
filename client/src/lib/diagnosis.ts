@@ -14,8 +14,6 @@ export const createDiagnosis = async (text: string, carId: string) => {
     const data = await res.json();
 
     if (res.status === 200) {
-      console.log('createDiagnosis', data);
-
       return data;
     } else {
       throw new Error(`Failed request: code: ${res.status}, status: ${res.statusText}`);
